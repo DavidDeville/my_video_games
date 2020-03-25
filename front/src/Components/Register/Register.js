@@ -1,29 +1,48 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 import "./Register.css";
 import axios from "axios";
 
 const Register = () => {
 
+    /**
+     * States used for the form input and possible errors
+     */
     const [nickname, setNickName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+    const [confirmRegister, setConfirmRegister] = useState(null);
+    const [error, setError] = useState(null);
+
+    /**
+     * useHistory to redirect to login after a successful registration
+     */
+    const history = useHistory();
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("valeur nickname : " +nickname);
-        console.log("valeur email : " +email);
-        console.log("valeur password : " +password);
-        axios.post("https://localhost:8000/user/create", {user : {
+        axios.post("https://localhost:8000/user/register", {user : {
             nickname: nickname,
             email: email,
             password: password
         }})
         .then(res => {
-            console.log(res.data["user"]);
+            console.log(res);
+            if(res.data.message === "fail") {
+                setError("User already exist");
+            }
+            else if(res.data.message === "success") {
+                if(error !== null ) {
+                    setError(null);
+                    setConfirmRegister("Registration success!");
+                    history.push("/login");
+                } else {
+                    setConfirmRegister("Registration success!");
+                    history.push("/login");
+                }
+            }
         }).catch(err => {
             console.log(err);
-            setError("Invalid input or user already taken");
         })
     }
 
@@ -44,7 +63,10 @@ const Register = () => {
                 </label>
                 <input type="password" name="password" className="form_input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password..."/>
                 <button type="submit" className="form_button" onClick={(e) => handleSubmit(e)}>Register</button>
-                <p className="form_error">{error}</p>
+                {error !== null ? 
+                <p className="form_error">{error}</p> : 
+                <p className="form_success">{confirmRegister}</p>
+                }
             </form>
         </div>
     );

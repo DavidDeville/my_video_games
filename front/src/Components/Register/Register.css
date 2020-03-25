@@ -47,3 +47,14 @@
     margin-bottom: 10px;
     margin-left: 0px;
 }
+
+.form_success {
+    color: lightseagreen;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 0.7em;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
