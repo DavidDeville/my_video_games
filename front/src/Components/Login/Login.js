@@ -10,12 +10,12 @@ const Login = () => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post("https://localhost:8000/user/login", {user : {
+        axios.post("https://localhost:8000/user/login", {user: {
             email: email,
             password: password
         }})
         .then(res => {
-            console.log(res.data);
+            console.log(res);
         }).catch(err => {
             console.log(err);
             setError("Invalid email or password");
@@ -29,11 +29,11 @@ const Login = () => {
                 <label className="form_label">
                     Email :
                 </label>
-                <input type="email" name="email" className="form_input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email..."/>
+                <input type="email" name="_username" className="form_input" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter your email..."/>
                 <label className="form_label">
                     Password :
                 </label>
-                <input type="password" name="password" className="form_input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password..."/>
+                <input type="password" name="_password" className="form_input" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter your password..."/>
                 <button type="submit" className="form_button" onClick={(e) => handleSubmit(e)}>Login</button>
                 <p className="form_error">{error}</p>
             </form>
