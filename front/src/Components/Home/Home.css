@@ -1,10 +1,65 @@
+.options_header {
+  background-color: #282c30;
+  min-height: 9vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /*align-items: center;*/
+  /*justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-logo {
+    width: 80px;
+    height: 80px;
+}
+
+.register {
+    margin-right: 10px;
+    margin-top: 50px;
+}
+
+.login {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.home_main_bloc {
+  background-color: #282c30;
+  min-height: 100vh;
+  color: white;
+}
+
 .home_header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+  background-color: #352c30;
+  min-height: 9vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.home_title {
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+.home_login {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+.home_logout {
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 5px;
+}
