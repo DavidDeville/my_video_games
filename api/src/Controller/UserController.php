@@ -75,15 +75,14 @@ class UserController extends AbstractController
             $token = new Token($user);
             $entityManager->persist($token);
             $entityManager->flush();
-            return new JsonResponse(['success' => true, "token" => $token->getToken()]);
+            return new JsonResponse(['success' => true, "token" => $token->getToken(), "username" => $user->getNickname()]);
         }
         else {
-            return new JsonResponse(['err' => "fdp :)"]);
+            return new JsonResponse(['err' => "an error occured"]);
         }
         // ob_start();
         // var_dump($match);
         // $contenu = $user->getNickname();
         // $contenu = ob_get_clean();
-        
     }
 }

@@ -68,6 +68,10 @@ const Register = () => {
                 <p className="form_success">{confirmRegister}</p>
                 }
             </form>
+            <div className="have_account_bloc">
+                <p className="have_account">Already have an account? </p>
+                <p className="login" onClick={() => history.push("/login")}> Login</p>
+            </div>
         </div>
     );
 };

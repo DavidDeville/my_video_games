@@ -1,5 +1,5 @@
 .form_bloc {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .register_form {
@@ -14,6 +14,7 @@
 .register_form_header {
     font-size: 1em;
     font-weight: bold;
+    text-align: center;
 }
 
 .form_input {
@@ -57,4 +58,18 @@
     margin-right: 0px;
     margin-bottom: 10px;
     margin-left: 0px;
+}
+
+.have_account {
+    display: inline;
+    font-size: 0.7em;
+}
+
+.login {
+    display: inline;
+    font-size: 0.7em;
+}
+
+.login:hover {
+    cursor: pointer;
 }
